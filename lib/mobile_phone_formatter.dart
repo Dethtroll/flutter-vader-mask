@@ -6,7 +6,7 @@ class MobilePhoneFormatter extends NumberInputFormatter {
   static final _digitFormatter = new WhitelistingTextInputFormatter(_digitOnlyRegex);
 
   @override
-  String _formatPattern(String digits) {
+  String formatPattern(String digits) {
     StringBuffer result = StringBuffer();
 
     for (var i = 0; i < digits.length; i++) {
@@ -29,12 +29,12 @@ class MobilePhoneFormatter extends NumberInputFormatter {
   }
 
   @override
-  TextEditingValue _formatValue(TextEditingValue oldValue, TextEditingValue newValue) {
+  TextEditingValue formatValue(TextEditingValue oldValue, TextEditingValue newValue) {
     return _digitFormatter.formatEditUpdate(oldValue, newValue);
   }
 
   @override
-  bool _isUserInput(String s) {
+  bool isUserInput(String s) {
     return _digitOnlyRegex.firstMatch(s) != null;
   }
 }

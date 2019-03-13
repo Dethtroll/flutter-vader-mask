@@ -6,11 +6,11 @@ import 'package:flutter/services.dart';
 
 abstract class NumberInputFormatter extends TextInputFormatter {
   /// check character from user input, not inserted by formatter
-  bool _isUserInput(String s);
+  bool isUserInput(String s);
   /// format user input with formatter
-  String _formatPattern(String digits);
+  String formatPattern(String digits);
   /// remove all invalid characters
-  TextEditingValue _formatValue(TextEditingValue oldValue, TextEditingValue newValue);
+  TextEditingValue formatValue(TextEditingValue oldValue, TextEditingValue newValue);
 
   /// previous value, stored for two and more step formatting (when added separators)
   TextEditingValue _previousNewValue;
@@ -23,18 +23,18 @@ abstract class NumberInputFormatter extends TextInputFormatter {
     }
     _previousNewValue = newValue;
 
-    var value = _formatValue(oldValue, newValue);
+    var value = formatValue(oldValue, newValue);
     var selectionIndex = value.selection.end;
 
     /// format original string (adding some separators)
-    final result = _formatPattern(value.text);
+    final result = formatPattern(value.text);
 
     /// calculate count of inserted characters and count of user input characters
     var insertedSeparatorsCount = 0;
     var insertedByUserCount = 0;
     for (int i = 0; i < result.length && insertedByUserCount < selectionIndex; i++) {
       final character = result[i];
-      if (_isUserInput(character)) {
+      if (isUserInput(character)) {
         insertedByUserCount++;
       } else {
         insertedSeparatorsCount++;
@@ -47,7 +47,7 @@ abstract class NumberInputFormatter extends TextInputFormatter {
     /// if selection is right after an inserted separator, it should be moved backward,
     /// user cannot delete separators when cursor stands right after
     if (selectionIndex - 1 >= 0 && selectionIndex - 1 < result.length &&
-        !_isUserInput(result[selectionIndex - 1])) {
+        !isUserInput(result[selectionIndex - 1])) {
       selectionIndex--;
     }
 

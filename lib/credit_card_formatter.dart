@@ -16,7 +16,7 @@ class CreditCardFormatter extends NumberInputFormatter {
   CreditCardFormatter({this.separator = ' '});
 
   @override
-  String _formatPattern(String digits) {
+  String formatPattern(String digits) {
     final length = digits.length;
     var groupEndIndex = min(4, length);
     var groupStartIndex = 0;
@@ -32,12 +32,12 @@ class CreditCardFormatter extends NumberInputFormatter {
   }
 
   @override
-  TextEditingValue _formatValue(TextEditingValue oldValue, TextEditingValue newValue) {
+  TextEditingValue formatValue(TextEditingValue oldValue, TextEditingValue newValue) {
     return _digitOnlyFormatter.formatEditUpdate(oldValue, newValue);
   }
 
   @override
-  bool _isUserInput(String s) {
+  bool isUserInput(String s) {
     return _digitOnlyRegex.firstMatch(s) != null;
   }
 }

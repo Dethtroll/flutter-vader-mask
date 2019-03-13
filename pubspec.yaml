@@ -1,6 +1,6 @@
 name: vader_mask
 description: The Flutter package provides implementations of TextInputFormatter
-version: 0.0.1
+version: 0.1.0
 author: Dethtroll <brutal.coder@gmail.com>
 homepage: https://github.com/Dethtroll/flutter-vader-mask
 
