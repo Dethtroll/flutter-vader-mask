@@ -4,7 +4,7 @@ The Flutter package provides implementations of TextInputFormatter
 ## How to use
 
 ```dart
-import 'package:vader-mask/vader_mask.dart';
+import 'package:vader_mask/vader_mask.dart';
 ```
 
 ### Mobile phone formatter
