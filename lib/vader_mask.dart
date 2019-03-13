@@ -1,7 +1,4 @@
 library vader_mask;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'credit_card_formatter.dart';
+export 'mobile_phone_formatter.dart';
