@@ -1,6 +1,6 @@
 # vader-mask
 
-[![pub package](https://img.shields.io/pub/v/vader-mask.svg)](https://pub.dartlang.org/packages/vader-mask)
+[![pub package](https://img.shields.io/pub/v/vader_mask.svg)](https://pub.dartlang.org/packages/vader_mask)
 
 The Flutter package provides implementations of TextInputFormatter
 
