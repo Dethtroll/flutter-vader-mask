@@ -1,4 +1,4 @@
-# vader-mask
+# Dart Vader mask
 
 [![pub package](https://img.shields.io/pub/v/vader_mask.svg)](https://pub.dartlang.org/packages/vader_mask)
 
@@ -19,10 +19,26 @@ TextField(
     prefixText: '+7 ',
   ),
   inputFormatters: <TextInputFormatter>[
-    PhoneFormatter()
+    MobilePhoneFormatter()
   ],
   keyboardType: TextInputType.phone,
   maxLength: 15,
+  autofocus: true,
+)
+```
+
+### Credit card number formatter
+
+```dart
+TextField(
+  decoration: InputDecoration(
+    hintText: 'Card number',
+  ),
+  inputFormatters: <TextInputFormatter>[
+    CreditCardFormatter()
+  ],
+  keyboardType: TextInputType.number,
+  maxLength: 19,
   autofocus: true,
 )
 ```
